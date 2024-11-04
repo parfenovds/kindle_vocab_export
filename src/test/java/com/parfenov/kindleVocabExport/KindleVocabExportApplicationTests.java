@@ -1,4 +1,4 @@
-package com.parfenov.kindle_vocab_export;
+package com.parfenov.kindleVocabExport;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Download CSV</title>
+</head>
+<body>
+<h1>Your CSV is Ready</h1>
+
+<div th:if="${csvContent}">
+  <pre th:text="${csvContent}"></pre>
+</div>
+
+<div th:if="${downloadReady}">
+  <a th:href="@{/downloadCsv}" download="anki.csv">Download CSV</a>
+</div>
+</body>
+</html>

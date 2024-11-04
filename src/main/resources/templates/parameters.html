@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Select Parameters</title>
+</head>
+<body>
+<h1>Select Parameters</h1>
+<form method="post" th:action="@{/process}">
+    <input type="hidden" name="userKey" th:value="${userKey}" />
+    <label>Start Date: <input type="date" name="dateFrom" /></label><br>
+    <label>End Date: <input type="date" name="dateTo" /></label><br>
+    <label>Source Language: <input type="text" name="sourceLanguage" /></label><br>
+    <label>Target Language: <input type="text" name="targetLanguage" required /></label><br>
+    <label>Max Results: <input type="number" name="limit" min="1" /></label><br>
+    <button type="submit">Generate CSV</button>
+</form>
+</body>
+</html>

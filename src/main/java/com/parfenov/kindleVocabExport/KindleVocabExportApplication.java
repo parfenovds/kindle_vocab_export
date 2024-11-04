@@ -1,4 +1,4 @@
-package com.parfenov.kindle_vocab_export;
+package com.parfenov.kindleVocabExport;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

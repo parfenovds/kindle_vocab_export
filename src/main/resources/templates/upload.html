@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Upload Vocab.db</title>
+</head>
+<body>
+<h1>Upload Vocab.db File</h1>
+<form method="post" enctype="multipart/form-data" th:action="@{/upload}">
+  <input type="file" name="file" required />
+  <button type="submit">Upload</button>
+</form>
+</body>
+</html>
