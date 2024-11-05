@@ -1,0 +1,27 @@
+services:
+  anki-to-kindle-postgres:
+    image: postgres
+    container_name: anki-to-kindle-postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - /home/livcy/anki-to-kindle:/docker-entrypoint-initdb.d
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - anki-to-kindle-net
+
+  anki-to-kindle-main-service:
+    build: .
+    container_name: anki-to-kindle-main-service
+    ports:
+      - "8077:8077"
+    depends_on:
+      - anki-to-kindle-postgres
+    networks:
+      - anki-to-kindle-net
+
+networks:
+  anki-to-kindle-net:
+    driver: bridge
