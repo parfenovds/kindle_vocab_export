@@ -1,15 +1,11 @@
 package com.parfenov.kindleVocabExport.controller;
 
-import com.parfenov.kindleVocabExport.entity.Card;
-import com.parfenov.kindleVocabExport.entity.Lookup;
 import com.parfenov.kindleVocabExport.filter.CardFilter;
 import com.parfenov.kindleVocabExport.service.BasicService;
 import com.parfenov.kindleVocabExport.service.CardService;
 import com.parfenov.kindleVocabExport.service.CsvExportService;
 import com.parfenov.kindleVocabExport.service.TempFileService;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.Set;
 import java.util.UUID;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -20,8 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileUploadAndParameterController {

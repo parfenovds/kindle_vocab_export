@@ -4,7 +4,6 @@ import com.parfenov.kindleVocabExport.entity.Card;
 import com.parfenov.kindleVocabExport.entity.Lookup;
 import com.parfenov.kindleVocabExport.filter.CardFilter;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.util.Set;
 import org.springframework.stereotype.Service;
 
