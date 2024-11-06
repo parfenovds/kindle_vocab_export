@@ -28,7 +28,7 @@ public class TranslationService {
 
   public Card translate(Card card, String targetLanguage) {
     CardLibretranslateDTO requestDto = cardLibretranslateMapper.mapFrom(card);
-    requestDto.setTarget(targetLanguage);  // Устанавливаем целевой язык
+    requestDto.setTarget(targetLanguage);
 
     try {
       String url = libreTranslateUrl + "/translate";

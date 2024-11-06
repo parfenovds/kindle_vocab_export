@@ -35,10 +35,10 @@ public class LookupService {
   }
 
   private Timestamp getStartingTimestamp(String dateFrom, String timestamp, String dbFilePath) {
-    if (dateFrom == null && timestamp == null) {
+    if (dateFrom == null && (timestamp == null || timestamp.isEmpty())) {
       dateFrom = getDateForLimit(DateOption.MIN, dbFilePath);
       return Converter.convertStringToTimestamp(dateFrom, true);
-    } else if (dateFrom != null && timestamp == null) {
+    } else if (dateFrom != null && (timestamp == null || timestamp.isEmpty())) {
       return Converter.convertStringToTimestamp(dateFrom, true);
     } else {
       return new Timestamp(Long.parseLong(timestamp));

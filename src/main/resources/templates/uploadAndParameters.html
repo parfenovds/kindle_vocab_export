@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload File and Select Parameters</title>
+</head>
+<body>
+<h2>Upload Kindle vocab.db and Choose Parameters</h2>
+<form th:action="@{/process}" method="post" enctype="multipart/form-data">
+    <label for="file">Select vocab.db file:</label>
+    <input type="file" id="file" name="file" required><br><br>
+
+    <label for="dateFrom">Date From:</label>
+    <input type="date" id="dateFrom" name="dateFrom"><br><br>
+
+    <label for="dateTo">Date To:</label>
+    <input type="date" id="dateTo" name="dateTo"><br><br>
+
+    <label for="sourceLanguage">Source Language:</label>
+    <input type="text" id="sourceLanguage" name="sourceLanguage" placeholder="e.g., en"><br><br>
+
+    <label for="targetLanguage">Target Language:</label>
+    <input type="text" id="targetLanguage" name="targetLanguage" placeholder="e.g., ru"><br><br>
+
+    <label for="limit">Limit:</label>
+    <input type="number" id="limit" name="limit" min="1"><br><br>
+
+    <label for="timestamp">Timestamp:</label>
+    <input type="text" id="timestamp" name="timestamp"><br><br>
+
+    <button type="submit">Generate CSV</button>
+</form>
+</body>
+</html>

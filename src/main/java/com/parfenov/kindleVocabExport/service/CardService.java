@@ -17,17 +17,17 @@ public class CardService {
     this.translationService = translationService;
   }
 
-  public Set<Card> processCards(String dateFrom, String dateTo, String sourceLanguage, String targetLanguage, Integer limit, String timestamp, String userKey) {
-    Set<Lookup> rawLookups = lookupService.getFiltered(userKey, dateFrom, dateTo, sourceLanguage, limit, timestamp);
+  public Set<Lookup> prepareRawLookups(String dateFrom, String dateTo, String sourceLanguage, Integer limit, String timestamp, String userKey) {
+    return lookupService.getFiltered(userKey, dateFrom, dateTo, sourceLanguage, limit, timestamp);
+  }
 
-    Set<Card> translatedCards = rawLookups.stream()
+  public Set<Card> translateCards(Set<Lookup> rawLookups, String targetLanguage) {
+    return rawLookups.stream()
         .map(lookup -> {
           Card card = mapLookupToCard(lookup);
           return translationService.translate(card, targetLanguage);
         })
         .collect(Collectors.toSet());
-
-    return translatedCards;
   }
 
   private Card mapLookupToCard(Lookup lookup) {

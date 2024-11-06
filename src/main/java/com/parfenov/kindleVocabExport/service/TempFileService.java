@@ -18,12 +18,15 @@ public class TempFileService {
     Files.createDirectories(Paths.get(UPLOAD_DIRECTORY));
   }
 
-  public Path uploadDatabaseFile(MultipartFile file, String userKey) throws IOException {
+  public void uploadDatabaseFile(MultipartFile file, String userKey) {
     String uniqueFileName = "vocab-" + userKey + ".db";
     Path filePath = Paths.get(UPLOAD_DIRECTORY, uniqueFileName);
-    file.transferTo(filePath.toFile());
+    try {
+      file.transferTo(filePath.toFile());
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
     userFiles.put(userKey, filePath);
-    return filePath;
   }
 
   public Path getDatabasePath(String userKey) {
