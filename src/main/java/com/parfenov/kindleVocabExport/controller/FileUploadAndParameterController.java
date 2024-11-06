@@ -2,9 +2,6 @@ package com.parfenov.kindleVocabExport.controller;
 
 import com.parfenov.kindleVocabExport.filter.CardFilter;
 import com.parfenov.kindleVocabExport.service.BasicService;
-import com.parfenov.kindleVocabExport.service.CardService;
-import com.parfenov.kindleVocabExport.service.CsvExportService;
-import com.parfenov.kindleVocabExport.service.TempFileService;
 import java.io.ByteArrayInputStream;
 import java.util.UUID;
 import org.springframework.core.io.InputStreamResource;
@@ -19,18 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class FileUploadAndParameterController {
-
-  private final TempFileService tempFileService;
-  private final CsvExportService csvExportService;
-  private final CardService cardService;
   private final BasicService basicService;
 
-  public FileUploadAndParameterController(
-      TempFileService tempFileService, CsvExportService csvExportService, CardService cardService,
-      BasicService basicService) {
-    this.tempFileService = tempFileService;
-    this.csvExportService = csvExportService;
-    this.cardService = cardService;
+  public FileUploadAndParameterController(BasicService basicService) {
     this.basicService = basicService;
   }
 
