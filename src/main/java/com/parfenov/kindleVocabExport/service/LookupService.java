@@ -19,7 +19,7 @@ public class LookupService {
 
   public Set<Lookup> getFiltered(String dbFilePath, String dateFrom, String dateTo, String sourceLanguage, Integer limit, String timestamp) {
     Timestamp timestampFrom = getStartingTimestamp(dateFrom, timestamp, dbFilePath);
-    if (dateTo == null) {
+    if (dateTo == null || dateTo.isEmpty()) {
       dateTo = getDateForLimit(DateOption.MAX, dbFilePath);
     }
     if (limit == null) {
@@ -35,10 +35,10 @@ public class LookupService {
   }
 
   private Timestamp getStartingTimestamp(String dateFrom, String timestamp, String dbFilePath) {
-    if (dateFrom == null && (timestamp == null || timestamp.isEmpty())) {
+    if ((dateFrom == null || dateFrom.isEmpty()) && (timestamp == null || timestamp.isEmpty())) {
       dateFrom = getDateForLimit(DateOption.MIN, dbFilePath);
       return Converter.convertStringToTimestamp(dateFrom, true);
-    } else if (dateFrom != null && (timestamp == null || timestamp.isEmpty())) {
+    } else if ((dateFrom != null && !dateFrom.isEmpty()) && (timestamp == null || timestamp.isEmpty())) {
       return Converter.convertStringToTimestamp(dateFrom, true);
     } else {
       return new Timestamp(Long.parseLong(timestamp));

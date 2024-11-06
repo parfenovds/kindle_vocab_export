@@ -28,6 +28,7 @@ public class Converter {
 
   public static String convertTimestampToString(Timestamp timestamp) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    return dateFormat.format(timestamp);
+    String format = dateFormat.format(timestamp);
+    return format;
   }
 }

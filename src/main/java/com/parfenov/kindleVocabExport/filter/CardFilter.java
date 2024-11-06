@@ -16,11 +16,4 @@ public class CardFilter {
   private String targetLanguage;
   private Integer limit;
   private String timestamp;
-//  @RequestParam("file") MultipartFile file,
-//  @RequestParam String dateFrom,
-//  @RequestParam String dateTo,
-//  @RequestParam String sourceLanguage,
-//  @RequestParam String targetLanguage,
-//  @RequestParam Integer limit,
-//  @RequestParam String timestamp
 }

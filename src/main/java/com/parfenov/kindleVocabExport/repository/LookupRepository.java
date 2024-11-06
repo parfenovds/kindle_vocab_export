@@ -4,6 +4,7 @@ import com.parfenov.kindleVocabExport.constant.DateOption;
 import com.parfenov.kindleVocabExport.entity.Lookup;
 import com.parfenov.kindleVocabExport.service.SQLiteService;
 import com.parfenov.kindleVocabExport.service.TempFileService;
+import com.parfenov.kindleVocabExport.util.Converter;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,12 +72,10 @@ public class LookupRepository {
 
       if (resultSet.next()) {
         Timestamp timestamp = resultSet.getTimestamp("timestamp");
-        return timestamp != null ? timestamp.toString() : null;
+        return timestamp != null ? Converter.convertTimestampToString(timestamp) : null;
       }
     } catch (SQLException e) {
       e.printStackTrace();
-    } finally {
-      tempFileService.deleteDatabaseFile(userKey);
     }
     return null;
   }
