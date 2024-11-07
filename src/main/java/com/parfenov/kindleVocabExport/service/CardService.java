@@ -30,6 +30,18 @@ public class CardService {
         .collect(Collectors.toSet());
   }
 
+  public Set<Card> makeKeyWordsBold(Set<Card> cards) {
+    for (Card card : cards) {
+      String originalSentence = card.getOriginalSentence();
+      for (String word : card.getWords()) {
+        String regex = "\\b" + word + "\\b";
+        originalSentence = originalSentence.replaceAll(regex, "<b>" + word + "</b>");
+      }
+      card.setOriginalSentence(originalSentence);
+    }
+    return cards;
+  }
+
   private Card mapLookupToCard(Lookup lookup) {
     Card card = new Card();
     card.setOriginalSentence(lookup.getUsage());

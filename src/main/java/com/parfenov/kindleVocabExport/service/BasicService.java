@@ -29,7 +29,8 @@ public class BasicService {
         filter.getTimestamp(),
         userKey
     );
-    Set<Card> processedCards = cardService.translateCards(preparedRawLookups, filter.getTargetLanguage());
-    return csvExportService.exportToCsv(processedCards);
+    Set<Card> translatedCards = cardService.translateCards(preparedRawLookups, filter.getTargetLanguage());
+    Set<Card> completedCards = cardService.makeKeyWordsBold(translatedCards);
+    return csvExportService.exportToCsv(completedCards);
   }
 }
