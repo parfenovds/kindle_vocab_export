@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button[type="button"] {
+            background-color: #f5f5f5;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Register</h2>
+
+    <!-- Success Message -->
+    <div th:if="${success}" class="success-message">
+        Account Created Successfully! <a th:href="@{/login}">Login here</a>.
+    </div>
+
+    <!-- Registration Form -->
+    <form th:action="@{/register}" method="post" th:object="${registerDTO}">
+        <div>
+            <label for="email">Email*</label>
+            <input type="email" id="email" th:field="*{email}" required>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></p>
+        </div>
+
+        <div>
+            <label for="password">Password*</label>
+            <input type="password" id="password" th:field="*{password}" required>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></p>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm Password*</label>
+            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+            <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error-message"></p>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit">Submit</button>
+            <button type="button" th:onclick="window.location.href='@{/cancel}'">Cancel</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

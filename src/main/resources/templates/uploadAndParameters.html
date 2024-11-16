@@ -2,32 +2,123 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Upload File and Select Parameters</title>
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .navbar-left, .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Form Container Styles */
+        .container {
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        input[type="file"],
+        input[type="date"],
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h2>Upload Kindle vocab.db and Choose Parameters</h2>
-<form th:action="@{/process}" method="post" enctype="multipart/form-data">
-    <label for="file">Select vocab.db file:</label>
-    <input type="file" id="file" name="file" required><br><br>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-left">
+        <a th:href="@{/}">Home</a>
+    </div>
+    <div class="navbar-right">
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </div>
+</div>
 
-    <label for="dateFrom">Date From:</label>
-    <input type="date" id="dateFrom" name="dateFrom"><br><br>
+<!-- Form Section -->
+<div class="container">
+    <h2>Upload Kindle vocab.db and Choose Parameters</h2>
+    <form th:action="@{/process}" method="post" enctype="multipart/form-data">
+        <label for="file">Select vocab.db file:</label>
+        <input type="file" id="file" name="file" required>
 
-    <label for="dateTo">Date To:</label>
-    <input type="date" id="dateTo" name="dateTo"><br><br>
+        <label for="dateFrom">Date From:</label>
+        <input type="date" id="dateFrom" name="dateFrom">
 
-    <label for="sourceLanguage">Source Language:</label>
-    <input type="text" id="sourceLanguage" name="sourceLanguage" placeholder="e.g., en"><br><br>
+        <label for="dateTo">Date To:</label>
+        <input type="date" id="dateTo" name="dateTo">
 
-    <label for="targetLanguage">Target Language:</label>
-    <input type="text" id="targetLanguage" name="targetLanguage" placeholder="e.g., ru"><br><br>
+        <label for="sourceLanguage">Source Language:</label>
+        <input type="text" id="sourceLanguage" name="sourceLanguage" placeholder="e.g., en">
 
-    <label for="limit">Limit:</label>
-    <input type="number" id="limit" name="limit" min="1"><br><br>
+        <label for="targetLanguage">Target Language:</label>
+        <input type="text" id="targetLanguage" name="targetLanguage" placeholder="e.g., ru">
 
-    <label for="timestamp">Timestamp:</label>
-    <input type="text" id="timestamp" name="timestamp"><br><br>
+        <label for="limit">Limit:</label>
+        <input type="number" id="limit" name="limit" min="1">
 
-    <button type="submit">Generate CSV</button>
-</form>
+        <label for="timestamp">Timestamp:</label>
+        <input type="text" id="timestamp" name="timestamp">
+
+        <button type="submit">Generate CSV</button>
+    </form>
+</div>
 </body>
 </html>

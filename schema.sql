@@ -1,17 +1,18 @@
--- Schema kindle_to_anki
-CREATE SCHEMA IF NOT EXISTS kindle_to_anki;
+-- -- Schema kindle_to_anki
+-- CREATE SCHEMA IF NOT EXISTS kindle_to_anki;
 
 -- Table `users`
 CREATE TABLE IF NOT EXISTS users
 (
-    id    BIGINT PRIMARY KEY,
-    login VARCHAR(45) NOT NULL
+    id    BIGSERIAL PRIMARY KEY,
+    email VARCHAR(45) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
 -- Table `author`
 CREATE TABLE IF NOT EXISTS author
 (
-    id           BIGINT PRIMARY KEY,
+    id           BIGSERIAL PRIMARY KEY,
     name         VARCHAR(45) NOT NULL,
     changed_name VARCHAR(45),
     users_id     BIGINT      NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE IF NOT EXISTS author
 -- Table `book`
 CREATE TABLE IF NOT EXISTS book
 (
-    id            BIGINT PRIMARY KEY,
+    id            BIGSERIAL PRIMARY KEY,
     title         VARCHAR(45) NOT NULL,
     changed_title VARCHAR(45),
     language      VARCHAR(45),
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS book
 -- Table `word`
 CREATE TABLE IF NOT EXISTS word
 (
-    id       BIGINT PRIMARY KEY,
+    id       BIGSERIAL PRIMARY KEY,
     word     VARCHAR(45) NOT NULL,
     language VARCHAR(45) NOT NULL,
     users_id BIGINT      NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS word
 -- Table `context`
 CREATE TABLE IF NOT EXISTS context
 (
-    id                  BIGINT PRIMARY KEY,
+    id                  BIGSERIAL PRIMARY KEY,
     original_sentence   VARCHAR(255) NOT NULL,
     translated_sentence VARCHAR(255),
     book_id             BIGINT       NOT NULL,
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS word_context
 -- Table `card`
 CREATE TABLE IF NOT EXISTS card
 (
-    id                      BIGINT PRIMARY KEY,
+    id                      BIGSERIAL PRIMARY KEY,
     front                   TEXT,
     back                    TEXT,
     word_context_word_id    BIGINT,
