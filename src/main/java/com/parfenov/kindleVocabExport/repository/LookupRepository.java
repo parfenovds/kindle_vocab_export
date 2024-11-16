@@ -26,7 +26,6 @@ public class LookupRepository {
     this.tempFileService = tempFileService;
   }
 
-  // Метод для получения фильтрованных данных
   public Set<Lookup> getFiltered(String userKey, Timestamp timestampFrom, Timestamp timestampTo, String sourceLanguage, Integer limit) {
     Set<Lookup> lookups = new HashSet<>();
     String query = """

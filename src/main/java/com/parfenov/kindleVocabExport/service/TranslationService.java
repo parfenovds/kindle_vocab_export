@@ -14,15 +14,13 @@ import org.springframework.web.client.RestTemplate;
 public class TranslationService {
 
   private final RestTemplate restTemplate;
-  private final ObjectMapper objectMapper;
   private final CardLibretranslateMapper cardLibretranslateMapper;
 
   @Value("${libretranslate.url}")
   private String libreTranslateUrl;
 
-  public TranslationService(RestTemplate restTemplate, ObjectMapper objectMapper, CardLibretranslateMapper cardLibretranslateMapper) {
+  public TranslationService(RestTemplate restTemplate, CardLibretranslateMapper cardLibretranslateMapper) {
     this.restTemplate = restTemplate;
-    this.objectMapper = objectMapper;
     this.cardLibretranslateMapper = cardLibretranslateMapper;
   }
 
