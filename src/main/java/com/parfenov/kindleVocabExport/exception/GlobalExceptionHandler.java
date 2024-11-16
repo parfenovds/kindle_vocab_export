@@ -16,13 +16,13 @@ public class GlobalExceptionHandler {
   public ModelAndView handleAllExceptions(Exception ex, Model model) {
     log.error("An exception occurred: {}", ex.getMessage());
     model.addAttribute("errorMessage", "An unexpected error occurred: " + ex.getMessage());
-    return new ModelAndView("error"); // Возвращает шаблон error.html
+    return new ModelAndView("error");
   }
 
   @ExceptionHandler(RuntimeException.class)
   public ModelAndView handleRuntimeException(RuntimeException ex, Model model) {
     log.error("A runtime exception occurred: {}", ex.getMessage());
     model.addAttribute("errorMessage", "A runtime error occurred: " + ex.getMessage());
-    return new ModelAndView("error-runtime"); // Возвращает шаблон error-runtime.html
+    return new ModelAndView("error-runtime");
   }
 }
