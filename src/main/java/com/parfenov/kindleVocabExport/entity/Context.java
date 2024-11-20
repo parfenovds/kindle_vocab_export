@@ -5,23 +5,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class AppUser {
+@Entity
+@Table(name = "context")
+public class Context {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  @Column(unique = true, nullable = false)
-  private String email;
-  private String password;
+  @Column(name = "original_sentence", nullable = false)
+  private String originalSentence;
+  @Column(name = "translated_sentence")
+  private String translatedSentence;
+  @ManyToOne
+  @JoinColumn(name = "book_id")
+  private Book book;
 }

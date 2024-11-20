@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.repository;
 
 import com.parfenov.kindleVocabExport.constant.DateOption;
-import com.parfenov.kindleVocabExport.entity.Lookup;
+import com.parfenov.kindleVocabExport.entity.basic.Lookup;
 import com.parfenov.kindleVocabExport.service.SQLiteService;
 import com.parfenov.kindleVocabExport.service.TempFileService;
 import java.nio.file.Files;

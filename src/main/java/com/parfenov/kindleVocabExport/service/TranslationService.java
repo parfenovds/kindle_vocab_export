@@ -1,9 +1,8 @@
 package com.parfenov.kindleVocabExport.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.parfenov.kindleVocabExport.dto.CardLibretranslateDTO;
 import com.parfenov.kindleVocabExport.dto.TranslationResponseLibretranslateDTO;
-import com.parfenov.kindleVocabExport.entity.Card;
+import com.parfenov.kindleVocabExport.entity.basic.Card;
 import com.parfenov.kindleVocabExport.mapper.CardLibretranslateMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

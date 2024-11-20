@@ -1,4 +1,4 @@
-package com.parfenov.kindleVocabExport.entity;
+package com.parfenov.kindleVocabExport.entity.basic;
 
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;

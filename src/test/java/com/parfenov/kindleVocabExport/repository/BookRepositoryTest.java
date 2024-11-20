@@ -1,6 +1,6 @@
 package com.parfenov.kindleVocabExport.repository;
 
-import com.parfenov.kindleVocabExport.entity.BookInfo;
+import com.parfenov.kindleVocabExport.entity.basic.BookInfo;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

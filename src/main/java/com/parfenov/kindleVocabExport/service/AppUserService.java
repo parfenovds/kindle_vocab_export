@@ -1,6 +1,6 @@
 package com.parfenov.kindleVocabExport.service;
 
-import com.parfenov.kindleVocabExport.entity.AppUser;
+import com.parfenov.kindleVocabExport.entity.basic.AppUser;
 import com.parfenov.kindleVocabExport.exception.NotFoundException;
 import com.parfenov.kindleVocabExport.repository.AppUserRepository;
 import lombok.AllArgsConstructor;

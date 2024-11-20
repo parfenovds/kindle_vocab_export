@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.service;
 
 import com.opencsv.CSVWriter;
-import com.parfenov.kindleVocabExport.entity.Card;
+import com.parfenov.kindleVocabExport.entity.basic.Card;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -1,5 +1,5 @@
 
-package com.parfenov.kindleVocabExport.entity;
+package com.parfenov.kindleVocabExport.entity.basic;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

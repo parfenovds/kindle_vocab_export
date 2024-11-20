@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.service;
 
-import com.parfenov.kindleVocabExport.entity.Card;
-import com.parfenov.kindleVocabExport.entity.Lookup;
+import com.parfenov.kindleVocabExport.entity.basic.Card;
+import com.parfenov.kindleVocabExport.entity.basic.Lookup;
 import com.parfenov.kindleVocabExport.filter.CardFilter;
 import java.io.ByteArrayInputStream;
 import java.util.Set;

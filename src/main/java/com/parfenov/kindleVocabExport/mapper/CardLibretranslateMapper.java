@@ -2,7 +2,7 @@ package com.parfenov.kindleVocabExport.mapper;
 
 
 import com.parfenov.kindleVocabExport.dto.CardLibretranslateDTO;
-import com.parfenov.kindleVocabExport.entity.Card;
+import com.parfenov.kindleVocabExport.entity.basic.Card;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.controller;
 
 import com.parfenov.kindleVocabExport.dto.RegisterDTO;
-import com.parfenov.kindleVocabExport.entity.AppUser;
+import com.parfenov.kindleVocabExport.entity.basic.AppUser;
 import com.parfenov.kindleVocabExport.repository.AppUserRepository;
 import jakarta.validation.Valid;
 import java.util.Optional;

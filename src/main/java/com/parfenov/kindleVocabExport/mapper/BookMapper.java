@@ -2,7 +2,7 @@
 package com.parfenov.kindleVocabExport.mapper;
 
 import com.parfenov.kindleVocabExport.dto.BookDTO;
-import com.parfenov.kindleVocabExport.entity.BookInfo;
+import com.parfenov.kindleVocabExport.entity.basic.BookInfo;
 import java.util.List;
 import org.springframework.stereotype.Component;
 

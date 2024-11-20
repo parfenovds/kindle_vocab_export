@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.service;
 
-import com.parfenov.kindleVocabExport.entity.Card;
-import com.parfenov.kindleVocabExport.entity.Lookup;
+import com.parfenov.kindleVocabExport.entity.basic.Card;
+import com.parfenov.kindleVocabExport.entity.basic.Lookup;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;

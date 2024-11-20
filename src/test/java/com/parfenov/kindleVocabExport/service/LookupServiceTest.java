@@ -1,7 +1,7 @@
 package com.parfenov.kindleVocabExport.service;
 
 import com.parfenov.kindleVocabExport.constant.DateOption;
-import com.parfenov.kindleVocabExport.entity.Lookup;
+import com.parfenov.kindleVocabExport.entity.basic.Lookup;
 import com.parfenov.kindleVocabExport.repository.LookupRepository;
 import com.parfenov.kindleVocabExport.util.Converter;
 import java.lang.reflect.InvocationTargetException;
