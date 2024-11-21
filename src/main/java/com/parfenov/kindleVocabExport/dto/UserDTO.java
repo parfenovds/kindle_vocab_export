@@ -9,11 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BookDTO {
+public class UserDTO {
   private Long id;
-  private String sourceDbId;
-  private String title;
-  private String changedTitle;
-  private String language;
-  private Long authorId;
+  private String email;
+  private String password;
 }

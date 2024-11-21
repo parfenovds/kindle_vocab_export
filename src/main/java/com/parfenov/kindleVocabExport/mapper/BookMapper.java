@@ -1,23 +1,15 @@
-
 package com.parfenov.kindleVocabExport.mapper;
 
 import com.parfenov.kindleVocabExport.dto.BookDTO;
-import com.parfenov.kindleVocabExport.entity.basic.BookInfo;
-import java.util.List;
-import org.springframework.stereotype.Component;
+import com.parfenov.kindleVocabExport.entity.Book;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-@Component
-public class BookMapper implements BaseMapper<BookInfo, BookDTO> {
+@Mapper(componentModel = "spring", uses = {AuthorMapper.class})
+public interface BookMapper {
+  @Mapping(source = "author.id", target = "authorId")
+  BookDTO toDTO(Book book);
 
-  @Override
-  public BookDTO mapFrom(BookInfo source) {
-    return BookDTO.builder()
-        .author(source.getAuthors())
-        .title(source.getTitle())
-        .build();
-  }
-
-  public List<BookDTO> mapAll(List<BookInfo> bookInfoSet) {
-    return bookInfoSet.stream().map(this::mapFrom).toList();
-  }
+  @Mapping(source = "authorId", target = "author.id")
+  Book toEntity(BookDTO bookDTO);
 }

@@ -58,6 +58,28 @@ public class LookupRepository {
     return lookups;
   }
 
+  public Set<Lookup> getAll(String userKey) {
+    Set<Lookup> lookups = new HashSet<>();
+    String query = """
+                SELECT * FROM lookups;
+                """;
+
+    Path filePath = tempFileService.getDatabasePath(userKey);
+
+    try (Connection connection = sqliteService.getConnection(filePath.toString());
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+      ResultSet resultSet = preparedStatement.executeQuery();
+      while (resultSet.next()) {
+        lookups.add(mapResultSetToLookup(resultSet));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+//      tempFileService.deleteDatabaseFile(userKey);
+    }
+    return lookups;
+  }
+
   public String getDateForLimit(DateOption dateOption, String userKey) {
     String query = dateOption == DateOption.MIN
         ? "SELECT MIN(timestamp) AS timestamp FROM lookups"

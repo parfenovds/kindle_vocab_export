@@ -7,7 +7,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity(name = "WordContext")
@@ -16,7 +16,7 @@ public class WordContext {
   @EmbeddedId
   private WordContextId id;
   @Column(name = "timestamp")
-  private LocalDateTime timestamp;
+  private Timestamp timestamp;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @MapsId("wordId")
@@ -31,7 +31,7 @@ public class WordContext {
   public WordContext(Word word, Context context) {
     this.word = word;
     this.context = context;
-    this.id = new WordContextId(word.getId(), id.getContextId());
+    this.id = new WordContextId(word.getId(), context.getId());
   }
 
   public WordContextId getId() {
@@ -42,11 +42,11 @@ public class WordContext {
     this.id = id;
   }
 
-  public LocalDateTime getTimestamp() {
+  public Timestamp getTimestamp() {
     return timestamp;
   }
 
-  public void setTimestamp(LocalDateTime timestamp) {
+  public void setTimestamp(Timestamp timestamp) {
     this.timestamp = timestamp;
   }
 

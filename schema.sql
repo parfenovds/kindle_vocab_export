@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS author
 CREATE TABLE IF NOT EXISTS book
 (
     id            BIGSERIAL PRIMARY KEY,
+    source_db_id  TEXT   NOT NULL,
     title         TEXT   NOT NULL,
     changed_title VARCHAR(512),
     language      VARCHAR(10),
@@ -54,8 +55,8 @@ CREATE TABLE IF NOT EXISTS word_context
 
 CREATE TABLE IF NOT EXISTS card
 (
-    id                      BIGSERIAL PRIMARY KEY,
-    front                   TEXT,
-    back                    TEXT
+    id    BIGSERIAL PRIMARY KEY,
+    front TEXT,
+    back  TEXT
 );
 

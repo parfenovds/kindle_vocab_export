@@ -17,6 +17,10 @@ public class LookupService {
     this.lookupRepository = lookupRepository;
   }
 
+  public Set<Lookup> getAll(String userKey) {
+    return lookupRepository.getAll(userKey);
+  }
+
   public Set<Lookup> getFiltered(String dbFilePath, String dateFrom, String dateTo, String sourceLanguage, Integer limit, String timestamp) {
     Timestamp timestampFrom = getStartingTimestamp(dateFrom, timestamp, dbFilePath);
     if (dateTo == null || dateTo.isEmpty()) {

@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BookDTO {
+public class WordDTO {
   private Long id;
-  private String sourceDbId;
-  private String title;
-  private String changedTitle;
+  private String word;
   private String language;
-  private Long authorId;
+  private Long userId;
 }

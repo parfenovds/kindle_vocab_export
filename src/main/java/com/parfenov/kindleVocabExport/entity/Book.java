@@ -25,6 +25,8 @@ public class Book {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  @Column(name = "source_db_id")
+  private String sourceDbId;
   @Column(name = "title", nullable = false)
   private String title;
   @Column(name = "changed_title")
